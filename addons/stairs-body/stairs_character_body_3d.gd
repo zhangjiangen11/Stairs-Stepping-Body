@@ -77,6 +77,10 @@ const horizontal := Vector3(1, 0, 1)		# Shortcut for converting vectors to horiz
 
 #region IMPLEMENTATION #############################################################################
 
+func _physics_process(delta: float) -> void:
+	_pre_physics_process()
+	_post_physics_process.call_deferred()
+
 # Function: Handle settings made before physical movements of this body
 func _pre_physics_process():
 	# Lock player collider rotation

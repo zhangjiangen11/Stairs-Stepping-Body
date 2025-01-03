@@ -42,6 +42,9 @@ func _camera_input(event):
 
 
 func _physics_process(delta: float) -> void:
+	_camera_smooth_jitter.call_deferred(delta)
+
+func _camera_smooth_jitter(delta):
 	CAMERA_HEAD.global_position.x = CAMERA_NECK.global_position.x
 	CAMERA_HEAD.global_position.y = lerpf(CAMERA_HEAD.global_position.y, CAMERA_NECK.global_position.y, CAMERA_SMOOTHING * delta)
 	CAMERA_HEAD.global_position.z = CAMERA_NECK.global_position.z

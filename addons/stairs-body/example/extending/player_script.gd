@@ -14,8 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
-	#Physic Calculations Reset
-	_pre_physics_process()
+	# Call movement in parent
+	super(delta)
 
 	# Horizontal Movement
 	#var _input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -33,11 +33,8 @@ func _physics_process(delta: float) -> void:
 	if is_grounded and Input.is_action_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
 
-	# Move object
-	_post_physics_process()
-
 	# Smooth camera
-	_camera_smooth_jitter(delta)
+	_camera_smooth_jitter.call_deferred(delta)
 
 
 func _camera_smooth_jitter(delta):

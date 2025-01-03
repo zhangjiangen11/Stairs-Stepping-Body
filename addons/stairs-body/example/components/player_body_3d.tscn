@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkh244ybrnt3j"]
+[gd_scene load_steps=8 format=3 uid="uid://bkh244ybrnt3j"]
 
 [ext_resource type="Script" path="res://addons/stairs-body/stairs_character_body_3d.gd" id="1_wnggy"]
-[ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/pre_physics.gd" id="2_idlfo"]
 [ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/movement_physics.gd" id="3_8n4cr"]
 [ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/gravity_physics.gd" id="4_e3sdg"]
 [ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/jump_physics.gd" id="5_66h3l"]
-[ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/post_physics.gd" id="6_4g7sm"]
 [ext_resource type="Script" path="res://addons/stairs-body/example/components/character_components/camera_smoother.gd" id="7_lt17t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7df6"]
@@ -21,10 +19,6 @@ PLAYER_COLLIDER = NodePath("PlayerCollision")
 
 [node name="PlayerPhysicsNodes" type="Node" parent="."]
 
-[node name="PrePhysicsCaller" type="Node" parent="PlayerPhysicsNodes" node_paths=PackedStringArray("character")]
-script = ExtResource("2_idlfo")
-character = NodePath("../..")
-
 [node name="MovementPhysics" type="Node" parent="PlayerPhysicsNodes" node_paths=PackedStringArray("character")]
 script = ExtResource("3_8n4cr")
 character = NodePath("../..")
@@ -37,10 +31,6 @@ character = NodePath("../..")
 script = ExtResource("5_66h3l")
 character = NodePath("../..")
 JUMP_VELOCITY = 6.0
-
-[node name="PostPhysicsCaller" type="Node" parent="PlayerPhysicsNodes" node_paths=PackedStringArray("character")]
-script = ExtResource("6_4g7sm")
-character = NodePath("../..")
 
 [node name="Camera" type="Node" parent="PlayerPhysicsNodes" node_paths=PackedStringArray("character", "CAMERA_NECK", "CAMERA_HEAD", "PLAYER_CAMERA")]
 script = ExtResource("7_lt17t")
