@@ -3,9 +3,8 @@ extends CharacterBody3D
 ## CharacterBody3D that automatically controlls movement up and down the stairs
 ##
 ## How to use:[br][br]
-## Call [code]_pre_physics_process[/code] once at the start of [code]_physics_process[/code];[br]
 ## Set [code]velocity[/code] to whatever value you wish to move;[br]
-## Call [code]_post_physics_process[/code] once at the end of [code]_physics_process[/code].[br]
+## Don't forget to call [code]super(delta)[/code] at the start of [code]_physics_process[/code] if you are overriding it.[br]
 ##[br][br][br]
 ## Credits:
 ##[br][br]
@@ -13,19 +12,18 @@ extends CharacterBody3D
 ## for [url=https://youtu.be/-WjM1uksPIk]original solution to stair_step_down[/url]!
 ##[br][br]
 ## Special thanks to [url=https://github.com/myria666/]Myria666[/url]
-## for [url=https://github.com/myria666/qMovementDoc]her paper on Quake movement mechanics[/url]
+## for [url=https://github.com/myria666/qMovementDoc]paper on Quake movement mechanics[/url]
 ## (used for stair_step_up)!
 ##[br][br]
 ## Special thanks to [url=https://github.com/Andicraft]Andicraft[/url]
-## for her help with implementation stair_step_up!
+## for help with implementation of stair_step_up!
 ##[br][br]
-## Special thanks to [url=https://github.com/JheKWall/]JheKWall[/url] for his
+## Special thanks to [url=https://github.com/JheKWall/]JheKWall[/url] for
 ## [url=https://github.com/JheKWall/Godot-Stair-Step-Demo]original character controller demo[/url]
 ## this is based on!
-## (https://github.com/Andicraft)
 ##[br][br]
-## [url=https://github.com/Visssarion]Vissa[/url] cleaned this controller
-## so that it could be used in Entity Component System or via Node Inheritance
+## [url=https://github.com/Visssarion]Vissa[/url] refactored previous code
+## so that it could be used with Entity Component System or with Node Inheritance
 ## [br][br][br]
 ## Notes:[br][br]
 ## 0. All shape colliders are supported. Although, I would recommend Capsule colliders for enemies
