@@ -44,7 +44,7 @@ func _camera_smooth_jitter(delta):
 
 	# Limit how far camera can lag behind its desired position
 	CAMERA_HEAD.global_position.y = clampf(CAMERA_HEAD.global_position.y,
-										-CAMERA_NECK.global_position.y - 1,
+										CAMERA_NECK.global_position.y - 1,
 										CAMERA_NECK.global_position.y + 1)
 
 
