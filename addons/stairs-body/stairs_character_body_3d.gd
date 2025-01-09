@@ -97,7 +97,7 @@ func _pre_physics_process():
 func _post_physics_process():
 	# Retrieve wish_dir from velocity that was passed here.
 	# wish_dir is a left over from old implementation, so getting it from velocity prevents stuff from breaking
-	wish_dir = velocity.normalized()
+	wish_dir = Vector3(velocity.x, 0, velocity.z).normalized()
 
 	# Stair step up
 	stair_step_up()
@@ -135,6 +135,9 @@ func stair_step_down():
 # Function: Handle walking up stairs
 func stair_step_up():
 	if wish_dir == Vector3.ZERO:
+		return
+
+	if velocity.y > 0:
 		return
 
 	_debug_stair_step_up("SSU_ENTER", null)															## DEBUG
