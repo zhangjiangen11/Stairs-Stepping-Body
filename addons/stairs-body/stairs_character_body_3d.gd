@@ -97,7 +97,7 @@ func _pre_physics_process():
 func _post_physics_process():
 	# Retrieve wish_dir from velocity that was passed here.
 	# wish_dir is a left over from old implementation, so getting it from velocity prevents stuff from breaking
-	wish_dir = Vector3(velocity.x, 0, velocity.z).normalized()
+	wish_dir = velocity.normalized()
 
 	# Stair step up
 	stair_step_up()
