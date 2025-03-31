@@ -5,6 +5,7 @@
 - Set `PLAYER_COLLIDER` to whichever collider you want your body to use.
 - Set `velocity` every physical frame to whatever value you wish to move;
 - Don't forget to call `super(delta)` at the start of `_physics_process` if you are overriding it.
+- Don't call `move_and_slide()` in your character controller, as the class calls it on it's own when calculating stair stepping.
 
 
 ## Credits
